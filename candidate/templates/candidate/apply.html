@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for Job</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+      display: flex;
+      min-height: 100vh;
+}
+.logout-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  background-color: #34495e;
+  color: white;
+  width: 220px;
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.sidebar i {
+  margin-right: 10px;
+}
+
+.content {
+  color: black;
+  background: grey;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  margin: auto;
+  box-shadow: 
+    0px 2px 10px rgba(0,0,0,0.2), 
+    0px 10px 20px rgba(0,0,0,0.3), 
+    0px 30px 60px 1px rgba(0,0,0,0.5);
+  border-radius: 8px;
+  padding: 60px;
+
+}
+
+.apply-form {
+  border: none;
+  background: none;
+  box-shadow: 0px 2px 0px 0px white;
+  width: 100%;
+  color: darkslategray;
+  font-size: 1em;
+  outline: none;
+}
+
+.apply-form h2 {
+  border:none;
+  background:none;
+  margin-bottom: 20px;
+}
+
+.apply-form form {
+  border:none;
+  background:none;
+  display: grid;
+  grid-gap: 20px;
+}
+
+.apply-form label {
+  font-weight: bold;
+}
+
+.apply-form input,
+.apply-form textarea {
+  border: none;
+  background: none;
+  box-shadow: 0px 2px 0px 0px white;
+  width: 100%;
+  color: black;
+  font-size: 1em;
+  outline: none;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  -webkit-text-fill-color: black;
+}
+
+.apply-form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.apply-form button:hover {
+  background-color: #2980b9;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+     {% include 'candidate/navbar.html' %}
+    <div class="content">
+      <div class="apply-form">
+        <h2>Apply for Job</h2>
+        <form method="post">
+          {% csrf_token %}
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          
+          <label for="college">College Name:</label>
+          <input type="text" id="college" name="college" required>
+          
+          <label for="passing-year">Passing Year:</label>
+          <input type="text" id="passing-year" name="passing_year" required>
+
+          <label for="passing-year">Year Experience:</label>
+          <input type="text" id="passing-year" name="yearOfExperience" required>
+          
+          <label for="resume">Resume:</label>
+          <input type="file" id="resume" name="resume" name="resume" accept=".pdf,.doc,.docx" required>
+          
+          <label for="about">Tell us about yourself:</label>
+          <textarea id="about" name="about" rows="4" required></textarea>
+          
+          <button type="submit" class="apply-button">Apply</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
